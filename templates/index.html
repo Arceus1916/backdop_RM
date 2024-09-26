@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>RailMadad Grievance Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <img src="{{ url_for('static', filename='images/header.png') }}" alt="RailMadad Header">
+        </div>
+    </header>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+            <!-- Chat Bot -->
+
+    <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/6ed69032-a76a-4fb5-99df-6e32b7fe9188/webchat/v2.1/config.js"></script>
+
+
+
+    <!-- Main Content Section -->
+    <div class="container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/indian_railways.png') }}" alt="Indian Railways">
+                <p>Indian Railways</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/train_enquiry.png') }}" alt="Train Enquiry">
+                <p>Train Enquiry</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/reservation_enquiry.png') }}" alt="Reservation Enquiry">
+                <p>Reservation Enquiry</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/retiring_booking.png') }}" alt="Retiring Room Booking">
+                <p>Retiring Room Booking</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/uts_ticketing.png') }}" alt="UTS Ticketing">
+                <p>UTS Ticketing</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/freight_buisness.png') }}" alt="Freight Business">
+                <p>Freight Business</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/parcel_website.png') }}" alt="Railway Parcel Website">
+                <p>Railway Parcel Website</p>
+            </div>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='images/ticket_booking.jpg') }}" alt="Ticket Booking">
+                <p>Ticket Booking</p>
+            </div>
+        </div>
+
+        <!-- Grievance Form Section -->
+        <div class="grievance-form">
+            <h2>Grievance Detail</h2>
+            <form action="{{ url_for('submit') }}" method="post" enctype="multipart/form-data">
+                <label for="pnr">PNR No *</label>
+                <input type="text" id="pnr" name="pnr" required>
+                
+                <label for="incident-date">Incident Date *</label>
+                <input type="datetime-local" id="incident-date" name="incident-date" required>
+
+                <label for="file">Upload Image</label>
+                <input type="file" id="file" name="file">
+
+                <label for="description">Grievance Description *</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

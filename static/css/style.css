@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/bg.png'); /* Correct path to the background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px); /* Apply blur to only the background */
+    z-index: -1; /* Ensure the background stays behind all content */
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8); /* Slight transparency for the header */
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    text-align: center;
+}
+
+.header-container img {
+    width: 100%;
+    max-width: 1000px;
+    height: 100px;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 1;
+    padding: 20px;
+}
+
+.logo-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-gap: 20px; /* Space between logos */
+    margin-right: 30px;
+}
+
+.logo-container {
+    text-align: center;
+}
+.logo-container p{
+    color: #ccc;
+}
+
+.logo-section img {
+    width: 80px;
+    display: block;
+    margin: 0 auto;
+}
+
+.logo-container p {
+    margin-top: 5px;
+    font-weight: bold;
+    color: black;
+}
+
+.grievance-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for the form */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.grievance-form h2 {
+    text-align: center;
+    color: #A1173A;
+    margin-bottom: 20px;
+}
+
+.grievance-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.grievance-form input[type="text"],
+.grievance-form input[type="datetime-local"],
+.grievance-form select,
+.grievance-form input[type="file"],
+.grievance-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.grievance-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #A1173A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.grievance-form button:hover {
+    background-color: #86132B;
+}
+.flash-messages {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Informed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/header.png') }}" alt="RailMadad Header">
+    </header>
+
+    <div class="container">
+        <div class="dialog-box">
+            <h2>Informed the Respective Personnel</h2>
+            <p>The Respective TT ID: <span id="personnel-id">{{ tt_id }}</span></p>
+            <p>Route Incharge ID: <span id="incharge-id">{{ incharge_id }}</span></p>
+            <button onclick="goBack()">Go Back</button>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "{{ url_for('index') }}";
+        }
+    </script>
+</body>
+</html>
