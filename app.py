@@ -37,13 +37,15 @@ def submit():
 
     # Identify the responsible personnel based on the PNR number and tag
     result = get_responsible_person(classification_tag, pnr_number)
+    if result == "PNR number not found":
+        flash(f"PNR number not found")
 
     # Remove the temporary image file
     os.remove(image_path)
 
     # Extract the TT/CRPF ID and Route Incharge ID from the result
-    responsible_person = result['responsible_person']
-    route_incharge = result['route_incharge']
+    responsible_person = result[0]
+    route_incharge = result[1]
 
     # Redirect to either the TT or CRPF page with the relevant IDs
     if classification_tag == 'violence':

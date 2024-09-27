@@ -41,29 +41,37 @@ def classify_image(model, image_path):
 
 # Simulated data (Route1, Route2, Route3)
 Route1 = {
-    '1001': ['tt_01', 'crpf_01', 'route_incharge_01'],
-    '1002': ['tt_02', 'crpf_02', 'route_incharge_01'],
-    '1003': ['tt_03', 'crpf_03', 'route_incharge_01']
+    '8116841775':['TT025', 'CRPF456', 'RI087'],
+    '8114179135': ['TT628', 'CRPF164', 'RI069'],
+    '8118694523': ['TT924', 'CRPF548', 'RI007']
 }
 
 Route2 = {
-    '2001': ['tt_04', 'crpf_04', 'route_incharge_02'],
-    '2002': ['tt_05', 'crpf_05', 'route_incharge_02'],
-    '2003': ['tt_06', 'crpf_06', 'route_incharge_02']
+    '4205524732': ['TT001', 'CRPF784', 'RI019'],
+    '4202926182': ['TT002', 'CRPF451', 'RI049'],
+    '4203648179': ['TT069', 'CRPF696', 'RI027']
 }
 
 Route3 = {
-    '3001': ['tt_07', 'crpf_07', 'route_incharge_03'],
-    '3002': ['tt_08', 'crpf_08', 'route_incharge_03'],
-    '3003': ['tt_09', 'crpf_09', 'route_incharge_03']
+    '4402924117': ['TT003', 'CRPF856', 'RI096'],
+    '4402947713': ['TT009', 'CRPF741', 'RI023'],
+    '4402628697': ['TT015', 'CRPF720', 'RI048']
 }
+combined_routes = {**Route1, **Route2, **Route3}
+
 
 def get_responsible_person(tag, pnr_number):
+    # Check if the PNR exists in the dataset
+    if pnr_number not in combined_routes:
+        return "PNR number not found"
+
+    # Retrieve the values for the given PNR number
+    values = combined_routes[pnr_number]
+
+    # Handle based on tag
     if tag == 'violence':
-        crpf_id = "crpf_" + pnr_number[-2:]  # example logic for CRPF ID
-        route_incharge = "route_incharge_" + pnr_number[-2:]  # example logic for route incharge
-        return {'responsible_person': crpf_id, 'route_incharge': route_incharge}
+        return [values[1], values[2]]  # CRPFXXX and RIXXX
+    elif tag == 'coaches' or tag == 'washroom':
+        return [values[0], values[2]]  # TTXXX and RIXXX
     else:
-        tt_id = "tt_" + pnr_number[-2:]  # example logic for TT ID
-        route_incharge = "route_incharge_" + pnr_number[-2:]  # example logic for route incharge
-        return {'responsible_person': tt_id, 'route_incharge': route_incharge}
+        return "Invalid tag"
