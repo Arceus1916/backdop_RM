@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rail Madad Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="mobile-container">
+        <header>
+            <h1>Rail Madad</h1>
+        </header>
+        
+        <div class="container" id="main-container">
+            <button class="option" onclick="showJourneyForm()">Add Journey Details</button>
+            <button class="option" onclick="showGrievanceForm()">Grievance Details</button>
+            <button class="option" onclick="showSOS()">SOS</button>
+        </div>
+
+        <!-- Journey Form -->
+        <div id="journey-form" class="form-container hidden">
+            <h2>Add Journey Details</h2>
+            <input type="text" id="journey-name" placeholder="Name" required>
+            <input type="text" id="journey-phone" placeholder="Phone Number" required>
+            <input type="text" id="journey-pnr" placeholder="PNR Number" required>
+            <button onclick="submitJourneyDetails()">Submit</button>
+            <button onclick="redirectToHome()">Cancel</button>
+        </div>
+
+        <!-- Grievance Form -->
+        <div id="grievance-form" class="form-container hidden">
+            <h2>Grievance Form</h2>
+            <input type="text" id="grievance-pnr" placeholder="PNR Number" required>
+            <input type="date" id="grievance-date" required>
+            <input type="file" id="grievance-image" required>
+            <textarea id="grievance-description" placeholder="Grievance Description" required></textarea>
+            <button onclick="submitGrievance()">Submit</button>
+            <button onclick="redirectToHome()">Cancel</button>
+        </div>
+
+        <script>
+            function showJourneyForm() {
+                document.getElementById('main-container').classList.add('hidden');
+                document.getElementById('journey-form').classList.remove('hidden');
+            }
+
+            function showGrievanceForm() {
+                document.getElementById('main-container').classList.add('hidden');
+                document.getElementById('grievance-form').classList.remove('hidden');
+            }
+
+            function showSOS() {
+                alert('SOS has been sent!');
+            }
+
+            function redirectToHome() {
+                document.getElementById('journey-form').classList.add('hidden');
+                document.getElementById('grievance-form').classList.add('hidden');
+                document.getElementById('main-container').classList.remove('hidden');
+            }
+
+            function submitJourneyDetails() {
+                const name = document.getElementById('journey-name').value;
+                const phone = document.getElementById('journey-phone').value;
+                const pnr = document.getElementById('journey-pnr').value;
+
+                // Logic to save journey details goes here
+                alert(`Journey saved for ${name} with PNR ${pnr}.`);
+                redirectToHome();
+            }
+
+            function submitGrievance() {
+                const pnr = document.getElementById('grievance-pnr').value;
+                const date = document.getElementById('grievance-date').value;
+                const image = document.getElementById('grievance-image').value;
+                const description = document.getElementById('grievance-description').value;
+
+                // Logic to handle grievance submission goes here
+                alert(`Grievance submitted for PNR ${pnr} on ${date}.`);
+                redirectToHome();
+            }
+        </script>
+    </div>
+</body>
+</html>

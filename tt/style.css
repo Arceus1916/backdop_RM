@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #4D0A15;
+    color: white;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: white;
+    height: 100px; /* Larger header size */
+    border-bottom: 2px solid #4D0A15; /* Adds more prominence to the header */
+}
+
+.header-image {
+    width: 500px;
+}
+
+.emp-id {
+    color: #4D0A15;
+    font-weight: bold;
+    font-size: 24px; /* Increased font size */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the boxes to wrap to the next line when necessary */
+    gap: 20px; /* Adds spacing between boxes */
+    justify-content: flex-start; /* Aligns boxes to the left */
+    margin-top: 30px; /* Added space between header and boxes */
+}
+
+.detail-box {
+    background-color: white;
+    color: #4D0A15;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px; /* Width of each box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s ease-in 5s forwards; /* 3s delay, then a 2s fade-in */
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
+.detail-box h2 {
+    font-size: 22px; /* Larger font for the title (phone number) */
+    margin-bottom: 10px;
+}
+
+.detail-box p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.detail-box strong {
+    color: #4D0A15;
+}
+
+.stay-box{
+    background-color: white;
+    color: #4D0A15;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px; /* Width of each box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.stay-box h2{
+    font-size: 22px; /* Larger font for the title (phone number) */
+    margin-bottom: 10px;
+
+}
+
+.stay-box p{
+    margin-bottom: 8px;
+    font-size: 16px;
+
+}
+
+.stay-box strong{
+    color: #4D0A15;
+
+}
+
+

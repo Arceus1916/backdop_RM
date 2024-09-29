@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.mobile-container {
+    width: 375px; /* Width for mobile display */
+    height: 667px; /* Height for mobile display (9:16 aspect ratio) */
+    border: 16px solid #ccc;
+    border-radius: 36px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
+}
+
+header {
+    background-color: white;
+    color: red;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px; /* Increased font size for visibility */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    width: 100%; /* Ensure the container takes full width */
+}
+
+.option {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 80%; /* Button width */
+    max-width: 300px; /* Max width for buttons */
+}
+
+.option:hover {
+    background-color: #a30000; /* Darker shade of red on hover */
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%; /* Width of the form */
+    max-width: 300px; /* Max width for forms */
+    margin: 10px 0;
+}
+
+input, textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #a30000; /* Darker shade of red on hover */
+}
+
+.hidden {
+    display: none;
+}
